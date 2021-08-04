@@ -1,0 +1,27 @@
+- defaultTab: nodes
+  description: Allows users to run the chef-client on nodes when necessary if they
+    can't wait for the scheduled job to run.
+  executionEnabled: true
+  id: 6a077a1a-d0c9-4159-8207-85d3b8566b91
+  loglevel: INFO
+  name: Run chef-client on demand
+  nodeFilterEditable: false
+  nodefilters:
+    dispatch:
+      excludePrecedence: true
+      keepgoing: false
+      rankOrder: ascending
+      successOnEmptyNodeFilter: false
+      threadcount: '1'
+    filter: node3
+  nodesSelectedByDefault: true
+  plugins:
+    ExecutionLifecycle: null
+  scheduleEnabled: true
+  sequence:
+    commands:
+    - description: Run chef-client
+      exec: sudo chef-client
+    keepgoing: false
+    strategy: node-first
+  uuid: 6a077a1a-d0c9-4159-8207-85d3b8566b91

@@ -1,0 +1,18 @@
+---
+description: Allow [read] access for chef nodes
+by:
+  username: alice
+for:
+  node:
+  - match:
+      nodename: node1
+    allow: [read,run]
+---
+description: Allow running the chef-client job
+by:
+  username: alice
+for:
+  job:
+  - allow: [read,run,kill]
+    equals: 
+      name: "Run chef-client on demand"
